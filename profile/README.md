@@ -43,23 +43,27 @@ React, Express, NestJS, AWS
 - 유저 사용감을 높이기 위해 같은 이메일 사용 시 OAuth로 로그인 가능
 - JwtAuthGuard를 만들어 일부 api는 토큰 없을 시 예외 처리
 - 이미지 파일을 받아서 S3에 업로드 후, url으로 바꿔 db에 저장 하여 유저 프로필 이미지 업데이트
-
-
+<br />
+  
 ## 🎸기타 개발내용
 - 서버 초대 기능(이메일 초대, 초대링크(암호화))
-- 채팅 메시지 알림 기능 및 읽지 않은 사용자 수 표시 기능 구현
+- 채팅 메시지 알림 및 읽지 않은 사용자 수 표시 구현
 - 개별 스트림 통신 제어기능 구현
 - 서버별 일정
 - 스웨거 생성
-- Prisma(ORM)을 사용하여 RDBMS 사용을 빠르게 숙지
-
-  <br />
-
+- 팀원 모두 SQL에 대한 숙련도가 부족한 상황에서 빠른 개발을 위해 Prisma(ORM)을 사용
+<br />  
+  
 ## 기타 개발 이미지
-![tmdnprj](https://github.com/Codeit-part4-team3/pq-client/assets/59861974/2dae6a46-a03b-4b99-8d3a-afe325a69be8)
-![ffsa](https://github.com/Codeit-part4-team3/pq-client/assets/59861974/938188b5-de7d-4216-bd96-306d691770db)
+<img src="https://github.com/Codeit-part4-team3/pq-client/assets/59861974/2dae6a46-a03b-4b99-8d3a-afe325a69be8" width="400" />
+<img src="https://github.com/Codeit-part4-team3/pq-client/assets/59861974/938188b5-de7d-4216-bd96-306d691770db" width="400" />  
+<br />    
+<br />  
 
-
+## 아쉬웠던 점
+- 테라폼(Infrastructure as code)을 도입하여 인프라를 코드로 형상관리하려 하였으나, 개발 딜레이로 초기 EC2관련 리소스스 설정에 그친것이 아쉬웠다. 이후 추가개발과 AWS아키텍쳐 자격증 준비와 동시에 Terraform으로 현재 인프라 구조를 설정하고 이후 관리할 예정이다.
+<br />  
+  
 ## ❗ 이슈 및 해결
 ### ❓ [MSA 서버구조의 로컬환경] 로컬환경에서 개발 및 테스트 시 유저서버와 채팅서버가 동일한 포트번호를 사용하고 있는 문제 발생. Port번호를 다르게 한다면 서버별로 API URL을 구분해야함
 API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주면 어떨까<br />
