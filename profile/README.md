@@ -12,7 +12,7 @@
 <br />
 
 ## 🪄 Skill
-React, Express, NestJS, AWS  
+React, Express, NestJS, Prisma(MySQL) AWS  
 <br />
 
 ## 📱 주요기능
@@ -35,9 +35,9 @@ React, Express, NestJS, AWS
     - Git Actions와 AWS Codedeploy를 사용한 자동배포
 <br />
 
-## 서버 별 추가 내용
+## 서버 별 내용
 
-### 유저서버
+### 👩‍💼👨‍💼 유저서버
 - 처음 개발하는 백엔드여서 빠른 개발을 위해 NestJs 와 Prisma 사용
 - 빠른 개발 및 유저관리와 토큰관리를 위해 AWS Cognito와 userdb 병행 사용
 - 유저 사용감을 높이기 위해 같은 이메일 사용 시 OAuth로 로그인 가능
@@ -49,8 +49,9 @@ React, Express, NestJS, AWS
 - 서버 초대 기능(이메일 초대, 초대링크(암호화))
 - 채팅 메시지 알림 및 읽지 않은 사용자 수 표시 구현
 - 개별 스트림 통신 제어기능 구현
-- 서버별 일정
-- 스웨거 생성
+- 서버별 일정 기능 구현
+- 멤버 정보 10초 단위로 업데이트
+- 스웨거 생성 경험
 - 팀원 모두 SQL에 대한 숙련도가 부족한 상황에서 빠른 개발을 위해 Prisma(ORM)을 사용
 <br />  
   
