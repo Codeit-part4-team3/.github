@@ -7,6 +7,7 @@
   <img src="https://github.com/Codeit-part4-team3/pq-client/assets/68732996/15a7ead1-1adc-4208-9869-104de9cb0ad8" width="400" />
   <img src="https://github.com/Codeit-part4-team3/pq-client/assets/68732996/9292ff9d-19cf-413c-911d-823d1c67e36a" width="400" />
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbrB10K%2FbtsGVLT8WUY%2FdvKJ14eCKkyIzmZpaeusu1%2Fimg.png" width="800" />
+
 </div>
 <hr />
 <br />
@@ -29,7 +30,7 @@ React, Express, NestJS, Prisma(MySQL) AWS
 - WebRTC를 활용하여 p2p기반의 N:M 음성/화상 스트림 통신 구현
 - WebSocket을 통한 실시간 통신 구현
   - 서버:체널=1:N 구조로 Room을 통한 socket 관리
-- 토스페이먼츠 결제 SDK 적용
+- 토스페이먼츠 SDK를 사용한 결제 시스템 구현 
 - CI/CD 구축
     - Jest를 활용하여 PR시 테스트 자동화
     - Git Actions와 AWS Codedeploy를 사용한 자동배포
@@ -73,20 +74,23 @@ React, Express, NestJS, Prisma(MySQL) AWS
 - 멤버 정보 10초 단위로 업데이트
 - 스웨거 생성 경험
 - 팀원 모두 SQL에 대한 숙련도가 부족한 상황에서 빠른 개발을 위해 Prisma(ORM)을 사용
-- 구독한 플랜에 따라 채팅 글자 수 제한
-- 이벤트 당첨 기능 구현
+- 유저의 구독별 기능 제한
+- 누적 결제 당첨 이벤트 구현
 - 실시간 토스트 기능 구현
+- 디버깅 & 모니터링을 위해 서버별 로그 수준별로 저장
 <br />  
   
 ## 기타 개발 이미지
 <img src="https://github.com/Codeit-part4-team3/pq-client/assets/59861974/2dae6a46-a03b-4b99-8d3a-afe325a69be8" width="400" />
 <img src="https://github.com/Codeit-part4-team3/pq-client/assets/59861974/938188b5-de7d-4216-bd96-306d691770db" width="400" />  
+<img src="https://github.com/Codeit-part4-team3/.github/assets/98401099/7380da3d-dd5c-4ef0-918a-c3dd7971c5ca" width="400" />
 <br />    
 <br />  
 
 ## 아쉬웠던 점
 - 테라폼(Infrastructure as code)을 도입하여 인프라를 코드로 형상관리하려 하였으나, 개발 딜레이로 초기 EC2관련 리소스스 설정에 그친것이 아쉬웠다. 이후 추가개발과 AWS아키텍쳐 자격증 준비와 동시에 Terraform으로 현재 인프라 구조를 설정하고 이후 관리할 예정이다.
 - 친구 목록 db를 설계는 했지만, 시간이 부족하여 기능을 추가하진 못했다.
+- API gateway를 통해 클라이언트 요청과 라우팅 관리를 하려 하였으나 여러 이슈에 대한 정보가 부족한 상태에서 개발일정도 고려해야 했기에 과감히 제외하는 선택을 했다. 마찬가지로 이후 AWS에 대해 추가로 학습하며 다뤄볼 예정이다.
 <br />  
   
 ## ❗ 이슈 및 해결
@@ -116,4 +120,11 @@ API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주�
 > <strong>😎</strong>
 > <strong> aws-sdk 전체를 임포트  하니 메모리 부족 <br /></strong>
 > <strong> aws-sdk 내부에서 필요한 부분만 임포트 하여 해결 <br /></strong>
-<br />  
+<br />
+
+### ❓[???] 결제 승인 요청 중 accessToken 재발급 과정에서 최종적으로 요청은 성공하지만 첫 401 에러를 결제 실패로 인식하는 현상
+토스페이먼츠 결제 인증 시 `successUrl`, `failUrl`에 반드시 `location.origin`을 포함해야 했기에 상태관리가 초기화되는 이슈가 있었다. 공식문서에는 요청 시 `successUrl`, `failUrl`을 제외하고 Promise로도 처리할 수 있다고 명시되어 있지만 제대로 적용되지 않았기에(+ 모바일 환경에선 작동 안한다고 함) url로 리다이렉트 하는 방식을 사용하기로 결정했다. 결제 인증 성공 페이지로 리다이렉트 후 accessToken 재발급 받기 전 401 에러를 결제 승인 실패로 인식하는 문제가 발생. <br />
+> <strong>😎</strong>
+> <strong> 결제 승인 요청을 마운트 후 바로 진행하지 않고, 모든 상태가 업데이트 된 후에 결제가 진행되록 설정<br /></strong>
+> <strong> <br /></strong>  
+<br />
