@@ -93,6 +93,7 @@ React, Express, NestJS, Prisma(MySQL) AWS
 - 테라폼(Infrastructure as code)을 도입하여 인프라를 코드로 형상관리하려 하였으나, 개발 딜레이로 초기 EC2관련 리소스스 설정에 그친것이 아쉬웠다. 이후 추가개발과 AWS아키텍쳐 자격증 준비와 동시에 Terraform으로 현재 인프라 구조를 설정하고 이후 관리할 예정이다.
 - 친구 목록 db를 설계는 했지만, 시간이 부족하여 기능을 추가하진 못했다.
 - API gateway를 통해 클라이언트 요청과 라우팅 관리를 하려 하였으나 여러 이슈에 대한 정보가 부족한 상태에서 개발일정도 고려해야 했기에 과감히 제외하는 선택을 했다. 이후 AWS에 대해 추가로 학습하며 다뤄볼 예정이다.
+- N:M 음성, 화상 채팅의 경우 맨처음엔 SFU방식으로 구현할 예정이였지만 알 수 없는 이슈로 지지부진하다가 시간이 촉박해서 P2P방식으로 변경해서 구현함. 이후 SFU방식으로 바꿔나갈 예정 
 <br />  
   
 ## ❗ 이슈 및 해결
@@ -120,7 +121,7 @@ API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주�
 
 ### ❓[EC2 + Nest] AWS EC2 Heap메모리 부족현상 발생
 > <strong>😎</strong>
-> <strong> aws-sdk 전체를 임포트  하니 메모리 부족 <br /></strong>
+> <strong> aws-sdk 전체를 임포트 하니 메모리 부족 <br /></strong>
 > <strong> aws-sdk 내부에서 필요한 부분만 임포트 하여 해결 <br /></strong>
 <br />
 
@@ -136,4 +137,24 @@ API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주�
 > <strong>😎</strong>
 > <strong> 모든 api 요청은 `api.pqsoft.net`으로 보내도록 설정했기에 `domain: 'pqsoft.net'`옵션 추가로 메인 도메인 및 하위 도메인 쿠키 접근 하용 설정으로 해결<br /></strong>
 > <strong> <br /></strong>  
+<br />
+
+### ❓[WebRTC] AWS 배포 후 WEBRTC 시그널링 과정이 안되는 이슈
+STUN서버를 사용하는 상태에서는 AWS 내부의 방화벽 등의 여러가지 장벽 떄문에 피어 연결이 불가능한 이슈가 발생함.
+> <strong>😎</strong>
+> <strong> EC2 인스턴스를 하나 사용해서 coturn 라이브러리를 이용해 turn서버를 구현했음. <br /></strong>
+> <strong> <br /></strong>
+
+### ❓[AWS DynamoDB] 테이블의 파티션 키와 정렬 키가 아닌 속성으로 쿼리 요청 불가능한 이슈
+채팅 메시지 수정, 삭제 기능 구현 중 채팅 메시지의 파티션 키가 channelId이고 정렬 키가 createdAt이였음. 
+messageId 속성으로는 해당 메시지에 접근이 불가능한 이슈가 발생함
+> <strong>😎</strong>
+> <strong> DynamoDB의 Global Secondary Indexes(GSI)를 이용해서, 파티션 키와 정렬 키가 아닌 속성을 파티션 키 또는 정렬 키로 하는 테이블 생성가능 <br /></strong>
+> <strong> <br /></strong>
+
+### ❓[Web Speech API] 클로바, 구글 STT 등 음성 인식 라이브러리 비용 이슈
+무료 상태로 개발을 끝내기가 불가능 하다고 판단을 해서 비용 이슈가 발생.
+> <strong>😎</strong>
+> <strong> Web API인 Web Speech API를 이용해서 음성 입력을 텍스트로 변환한 회의록 기능 구현함. <br /></strong>
+> <strong> <br /></strong>
 <br />
