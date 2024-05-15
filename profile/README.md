@@ -131,3 +131,9 @@ API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주�
 > <strong> 결제 승인 요청을 마운트 후 바로 진행하지 않고, 모든 상태가 업데이트 된 후에 결제가 진행되록 설정<br /></strong>
 > <strong> <br /></strong>  
 <br />
+
+### ❓[JWT] refreshToken Cookie에 저장 후 httpOnly 옵션 활성화 시 서버로 전송 불가 이슈
+> <strong>😎</strong>
+> <strong> api 요청은 하위 도메인(`api.pqsoft.net`)으로 보내도록 설정했기에 `domain: 'pqsoft.net'`옵션 추가로 메인 도메인 및 하위 도메인 쿠키 접근 하용 설정으로 해결<br /></strong>
+> <strong> <br /></strong>  
+<br />
