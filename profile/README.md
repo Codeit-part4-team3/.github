@@ -66,10 +66,10 @@ React, Express, NestJS, Prisma(MySQL) AWS
 ### 🔊 소켓 서버
 #### 기술 스택
   - express를 이용해서 서버 구현
-  - DB의 경우 AWS DynamoDB를 사용
+  - AWS DynamoDB를 사용
     
 #### 주요 기능 및 설계
-  - 
+  - socket event기반으로 채팅 메시지 CRUD 구현
 
 <br />
   
