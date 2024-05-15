@@ -123,7 +123,8 @@ API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주�
 <br />
 
 ### ❓[???] 결제 승인 요청 중 accessToken 재발급 과정에서 최종적으로 요청은 성공하지만 첫 401 에러를 결제 실패로 인식하는 현상
-토스페이먼츠 결제 인증 시 `successUrl`, `failUrl`에 반드시 `location.origin`을 포함해야 했기에 상태관리가 초기화되는 이슈가 있었다. 공식문서에는 요청 시 `successUrl`, `failUrl`을 제외하고 Promise로도 처리할 수 있다고 명시되어 있지만 제대로 적용되지 않았기에(+ 모바일 환경에선 작동 안한다고 함) url로 리다이렉트 하는 방식을 사용하기로 결정했다. 결제 인증 성공 페이지로 리다이렉트 후 accessToken 재발급 받기 전 401 에러를 결제 승인 실패로 인식하는 문제가 발생. <br />
+토스페이먼츠 결제 인증 시 `successUrl`, `failUrl`에 반드시 `location.origin`을 포함해야 했기에 상태관리가 초기화되는 이슈가 있었다. 
+결제 인증 성공 페이지로 리다이렉트 후 accessToken 재발급 받기 전 401 에러를 결제 승인 실패로 인식하는 문제가 발생. <br />
 > <strong>😎</strong>
 > <strong> 결제 승인 요청을 마운트 후 바로 진행하지 않고, 모든 상태가 업데이트 된 후에 결제가 진행되록 설정<br /></strong>
 > <strong> <br /></strong>  
