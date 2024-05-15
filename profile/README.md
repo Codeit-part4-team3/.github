@@ -65,7 +65,13 @@ React, Express, NestJS, Prisma(MySQL) AWS
 <br />
 
 ### 🔊 소켓 서버
--
+#### 기술 스택
+  - express를 이용해서 서버 구현
+  - DB의 경우 AWS DynamoDB를 사용
+    
+#### 주요 기능 및 설계
+  - 
+
 <br />
   
 ## 🎸기타 개발내용
