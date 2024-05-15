@@ -69,7 +69,9 @@ React, Express, NestJS, Prisma(MySQL) AWS
   - AWS DynamoDB를 사용
     
 #### 주요 기능 및 설계
-  - socket event기반으로 채팅 메시지 CRUD 구현
+  - DynamoDB 사용
+  - Socket기반 채팅 메시지 CRUD 구현 및 회의록 작성 구현
+  - WebRTC로 N:M 음성, 화상 채팅 구현
 
 <br />
   
