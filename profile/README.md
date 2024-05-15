@@ -83,7 +83,9 @@ React, Express, NestJS, Prisma(MySQL) AWS
 ## 기타 개발 이미지
 <img src="https://github.com/Codeit-part4-team3/pq-client/assets/59861974/2dae6a46-a03b-4b99-8d3a-afe325a69be8" width="400" />
 <img src="https://github.com/Codeit-part4-team3/pq-client/assets/59861974/938188b5-de7d-4216-bd96-306d691770db" width="400" />  
-<img src="https://github.com/Codeit-part4-team3/.github/assets/98401099/7380da3d-dd5c-4ef0-918a-c3dd7971c5ca" width="800" />
+<img src="https://github.com/Codeit-part4-team3/.github/assets/98401099/aabf7adc-feec-4f77-b607-61739418bf16" width="800" />
+
+
 <br />    
 <br />  
 
