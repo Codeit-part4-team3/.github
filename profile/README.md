@@ -27,9 +27,11 @@ React, Express, NestJS, Prisma(MySQL) AWS
 - MSA 서버구조(유저, 채팅, 소켓)로 AWS EC2에 배포(private)
     - 서버별 DB분리 유저/채팅서버(mysql), 채팅메시지(dynamoDB)
 - AWS Cognito를 사용하여 유저관리(구글, 카카오 회원가입)
+- Socket을 이용한 채팅 기능 구현
 - WebRTC를 활용하여 p2p기반의 N:M 음성/화상 스트림 통신 구현
 - WebSocket을 통한 실시간 통신 구현
   - 서버:체널=1:N 구조로 Room을 통한 socket 관리
+- Web Speech API를 이용해서 음성 입력을 텍스트로 변환 하는 회의록 기능 구현
 - 토스페이먼츠 SDK를 사용한 결제 시스템 구현 
 - CI/CD 구축
     - Jest를 활용하여 PR시 테스트 자동화
