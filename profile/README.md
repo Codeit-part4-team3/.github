@@ -122,7 +122,7 @@ API 요청 시 axios instance를 사용하고 있음 -> BaseURL을 구분해주�
 > <strong> aws-sdk 내부에서 필요한 부분만 임포트 하여 해결 <br /></strong>
 <br />
 
-### ❓[???] 결제 승인 요청 중 accessToken 재발급 과정에서 최종적으로 요청은 성공하지만 첫 401 에러를 결제 실패로 인식하는 현상
+### ❓[토스페이먼츠 SDK] 결제 승인 요청 중 accessToken 재발급 과정에서 최종적으로 요청은 성공하지만 첫 401 에러를 결제 실패로 인식하는 현상
 토스페이먼츠 결제 인증 시 `successUrl`, `failUrl`에 반드시 `location.origin`을 포함해야 했기에 상태관리가 초기화되는 이슈가 있었다. 
 결제 인증 성공 페이지로 리다이렉트 후 accessToken 재발급 받기 전 401 에러를 결제 승인 실패로 인식하는 문제가 발생. <br />
 > <strong>😎</strong>
