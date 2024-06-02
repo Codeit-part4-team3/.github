@@ -6,9 +6,10 @@
 <div style="display: flex; justify-content: center; align-items: center; ">
   <img src="https://github.com/Codeit-part4-team3/pq-client/assets/68732996/15a7ead1-1adc-4208-9869-104de9cb0ad8" width="400" />
   <img src="https://github.com/Codeit-part4-team3/pq-client/assets/68732996/9292ff9d-19cf-413c-911d-823d1c67e36a" width="400" />
+  <img src="https://github.com/Codeit-part4-team3/.github/assets/68732996/cf0586c6-c707-4215-a1a9-5e9320d7e4f3" width="800" />
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbrB10K%2FbtsGVLT8WUY%2FdvKJ14eCKkyIzmZpaeusu1%2Fimg.png" width="800" />
-
 </div>
+
 <hr />
 <br />
 
